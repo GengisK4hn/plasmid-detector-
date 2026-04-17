@@ -1,0 +1,191 @@
+================================================================================
+COMPREHENSIVE PLASMID ARCHITECTURE ANALYSIS REPORT
+================================================================================
+
+SEQUENCE INFORMATION
+--------------------------------------------------------------------------------
+Pfizer BNT162b2 (OR134577.1): 7,810 bp
+Moderna mRNA-1273 (OR134578.1): 6,777 bp
+Length difference: 1,033 bp
+
+ELEMENT DENSITY ANALYSIS
+--------------------------------------------------------------------------------
+Pfizer density: 3.20 elements/kb
+Moderna density: 2.36 elements/kb
+Safety element density: Pfizer 0.38/kb vs Moderna 0.00/kb
+
+SAFETY RELEVANCE SCORING
+--------------------------------------------------------------------------------
+Pfizer safety score: 42
+  High relevance: 3
+  Medium relevance: 11
+  Low relevance: 11
+  qPCR targets: 4
+
+Moderna safety score: 26
+  High relevance: 0
+  Medium relevance: 10
+  Low relevance: 6
+  qPCR targets: 1
+
+COMPREHENSIVE ELEMENT COMPARISON
+--------------------------------------------------------------------------------
+
+ColE1_Origin:
+  Category: Origin
+  Type: bacterial_backbone
+  Safety Relevance: HIGH
+  qPCR Target: True
+  Description: ColE1 bacterial origin of replication
+  Pfizer: 1 copies
+  Moderna: 0 copies
+  Difference: +1 (PFIZER HIGHER)
+  Pfizer positions: [2781]
+
+ColRNAI_1:
+  Category: Regulatory
+  Type: bacterial_backbone
+  Safety Relevance: MEDIUM
+  qPCR Target: True
+  Description: RNAI regulator within ColE1
+  Pfizer: 2 copies
+  Moderna: 4 copies
+  Difference: -2 (MODERNA HIGHER)
+  Pfizer positions: [2705, 3460]
+  Moderna positions: [475, 1366, 1390, 2062]
+
+PolyA_Signal:
+  Category: PolyA
+  Type: regulatory
+  Safety Relevance: LOW
+  qPCR Target: False
+  Description: Polyadenylation signal
+  Pfizer: 6 copies
+  Moderna: 1 copies
+  Difference: +5 (PFIZER HIGHER)
+  Pfizer positions: [410, 439, 2517, 2530, 3622] ... and 1 more
+  Moderna positions: [6627]
+
+SV40_6bp_Repeat:
+  Category: SV40
+  Type: mammalian_regulatory
+  Safety Relevance: LOW
+  qPCR Target: False
+  Description: 6bp repeat element
+  Pfizer: 3 copies
+  Moderna: 3 copies
+  Difference: +0 (EQUAL)
+  Pfizer positions: [1612, 2704, 3459]
+  Moderna positions: [1365, 3039, 3483]
+
+SV40_72bp_Enhancer:
+  Category: SV40
+  Type: mammalian_regulatory
+  Safety Relevance: HIGH
+  qPCR Target: True
+  Description: 72bp SV40 enhancer (Pfizer-specific)
+  Pfizer: 2 copies
+  Moderna: 0 copies
+  Difference: +2 (PFIZER HIGHER)
+  Pfizer positions: [1136, 1208]
+
+SV40_GC_Box:
+  Category: SV40
+  Type: mammalian_regulatory
+  Safety Relevance: MEDIUM
+  qPCR Target: False
+  Description: GC-rich promoter box
+  Pfizer: 2 copies
+  Moderna: 4 copies
+  Difference: -2 (MODERNA HIGHER)
+  Pfizer positions: [2705, 3460]
+  Moderna positions: [475, 1366, 1390, 2062]
+
+SV40_GC_Box_Reverse:
+  Category: SV40
+  Type: mammalian_regulatory
+  Safety Relevance: MEDIUM
+  qPCR Target: False
+  Description: Reverse complement GC box
+  Pfizer: 6 copies
+  Moderna: 2 copies
+  Difference: +4 (PFIZER HIGHER)
+  Pfizer positions: [1285, 1297, 1306, 1318, 1328] ... and 1 more
+  Moderna positions: [3261, 5037]
+
+T7_Promoter:
+  Category: Promoter
+  Type: transcription
+  Safety Relevance: MEDIUM
+  qPCR Target: True
+  Description: T7 promoter for IVT transcription
+  Pfizer: 1 copies
+  Moderna: 0 copies
+  Difference: +1 (PFIZER HIGHER)
+  Pfizer positions: [3603]
+
+TATA_Box:
+  Category: Promoter
+  Type: mammalian_regulatory
+  Safety Relevance: LOW
+  qPCR Target: False
+  Description: Core TATA promoter element
+  Pfizer: 1 copies
+  Moderna: 2 copies
+  Difference: -1 (MODERNA HIGHER)
+  Pfizer positions: [602]
+  Moderna positions: [5102, 6480]
+
+TATA_Box_Variant:
+  Category: Promoter
+  Type: mammalian_regulatory
+  Safety Relevance: LOW
+  qPCR Target: False
+  Description: TATA box variant
+  Pfizer: 1 copies
+  Moderna: 0 copies
+  Difference: +1 (PFIZER HIGHER)
+  Pfizer positions: [2740]
+
+================================================================================
+qPCR TARGET ANALYSIS
+================================================================================
+
+Pfizer qPCR Targets:
+  SV40_72bp_Enhancer: 2 copies
+    Description: 72bp SV40 enhancer (Pfizer-specific)
+    Positions: [1136, 1208]
+  ColE1_Origin: 1 copies
+    Description: ColE1 bacterial origin of replication
+    Positions: [2781]
+  ColRNAI_1: 2 copies
+    Description: RNAI regulator within ColE1
+    Positions: [2705, 3460]
+  T7_Promoter: 1 copies
+    Description: T7 promoter for IVT transcription
+    Positions: [3603]
+
+Moderna qPCR Targets:
+  ColRNAI_1: 4 copies
+    Description: RNAI regulator within ColE1
+    Positions: [475, 1366, 1390]
+
+================================================================================
+RESIDUAL DNA IMPLICATIONS
+================================================================================
+
+High-safety-relevance elements:
+- Pfizer has higher density of safety-relevant elements
+- SV40 enhancer elements (Pfizer only) are qPCR targets for residual DNA
+- KanR gene present in both (antibiotic resistance marker)
+- ColE1 origin present in both (bacterial replication)
+
+Fragment risk assessment:
+- Average fragment size ~214 bp (Nanopore data)
+- Maximum fragment size up to 3.5 kb
+- SV40 enhancer + promoter + TATA can fit in single fragment
+- KanR + ColE1 regions likely to persist as fragments
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================

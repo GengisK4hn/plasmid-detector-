@@ -1,0 +1,55 @@
+================================================================================
+SV40 NUCLEAR TARGETING SEQUENCE ANALYSIS
+================================================================================
+
+REFERENCES:
+--------------------------------------------------------------------------------
+SV40 nuclear localization signals (NLS) are among the most potent
+nuclear targeting sequences known. They facilitate active transport
+of DNA into the nucleus during interphase, affecting BOTH dividing
+and non-dividing cells.
+
+Key reference: https://pmc.ncbi.nlm.nih.gov/articles/PMC4150867/
+Nuclear Localization of Plasmid DNA During Transfection
+
+ANALYSIS RESULTS:
+--------------------------------------------------------------------------------
+Pfizer BNT162b2: 13 SV40 nuclear targeting elements
+Moderna mRNA-1273: 9 SV40 nuclear targeting elements
+
+PFIZER NUCLEAR TARGETING ELEMENTS:
+  SV40 72bp Enhancer: position 1136-1160
+  SV40 72bp Enhancer: position 1208-1232
+  SV40 GC Box Rev: position 1285-1291
+  SV40 GC Box Rev: position 1297-1303
+  SV40 GC Box Rev: position 1306-1312
+  SV40 GC Box Rev: position 1318-1324
+  SV40 GC Box Rev: position 1328-1334
+  SV40 GC Box Rev: position 1339-1345
+  6bp Repeat: position 1612-1618
+  6bp Repeat: position 2704-2710
+  SV40 GC Box: position 2705-2711
+  6bp Repeat: position 3459-3465
+  SV40 GC Box: position 3460-3466
+
+MODERNA NUCLEAR TARGETING ELEMENTS:
+  SV40 GC Box: position 475-481
+  6bp Repeat: position 1365-1371
+  SV40 GC Box: position 1366-1372
+  SV40 GC Box: position 1390-1396
+  SV40 GC Box: position 2062-2068
+  6bp Repeat: position 3039-3045
+  SV40 GC Box Rev: position 3261-3267
+  6bp Repeat: position 3483-3489
+  SV40 GC Box Rev: position 5037-5043
+
+================================================================================
+SIGNIFICANCE:
+================================================================================
+Plasmid DNA containing SV40 NLS can enter nuclei of non-dividing cells
+through active nuclear transport mechanisms. This has implications
+for genomic integration risk and long-term persistence.
+
+CONCLUSION: Pfizer contains 4 more SV40
+nuclear targeting elements than Moderna, representing higher
+potential for nuclear uptake and genomic integration.

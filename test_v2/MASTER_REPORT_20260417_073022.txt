@@ -1,0 +1,41 @@
+======================================================================
+ENHANCED PLASMID FINDER - MASTER ANALYSIS REPORT
+======================================================================
+
+Generated: 2026-04-17T07:30:19.528226
+Input: data/references
+
+SUMMARY
+----------------------------------------------------------------------
+Total Files: 4
+Plasmid Only: 4
+Sv40 Only: 0
+Both: 0
+Neither: 0
+
+DETAILED FINDINGS
+----------------------------------------------------------------------
+
+moderna_mrna_1273_OR134578.1.fasta
+  Plasmid: True 
+  SV40: False 
+  FCS: False 
+  Tools: ABRICATE
+
+pfizer_bnt162b2_OR134577.1.fasta
+  Plasmid: True 
+  SV40: False 
+  FCS: False 
+  Tools: ABRICATE
+
+moderna_mrna_1273_OR134578.1_clean.fasta
+  Plasmid: True 
+  SV40: False 
+  FCS: False 
+  Tools: ABRICATE
+
+pfizer_bnt162b2_OR134577.1_clean.fasta
+  Plasmid: True 
+  SV40: False 
+  FCS: False 
+  Tools: ABRICATE

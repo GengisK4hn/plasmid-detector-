@@ -1,0 +1,73 @@
+================================================================================
+COMPREHENSIVE PLASMID ARCHITECTURE ANALYSIS
+================================================================================
+
+SEQUENCE METRICS
+--------------------------------------------------------------------------------
+Pfizer: 7,810 bp
+Moderna: 6,777 bp
+Difference: 1,033 bp
+
+ELEMENT ANALYSIS
+--------------------------------------------------------------------------------
+Pfizer: 14 elements
+Moderna: 8 elements
+Difference: 6 elements
+
+CATEGORY BREAKDOWN
+--------------------------------------------------------------------------------
+
+GC Box:
+  Pfizer: 8
+  Moderna: 6
+  Pfizer has 2 more
+
+Origin:
+  Pfizer: 1
+  Moderna: 0
+  Pfizer has 1 more
+
+SV40 Enhancer:
+  Pfizer: 2
+  Moderna: 0
+  Pfizer has 2 more
+
+T7 Promoter:
+  Pfizer: 1
+  Moderna: 0
+  Pfizer has 1 more
+
+TATA:
+  Pfizer: 2
+  Moderna: 2
+  Equal
+
+================================================================================
+POSITION MAP
+================================================================================
+
+PFIZER ELEMENTS:
+  TATA Box        TATA                 pos   602-  608
+  72bp Enhancer   SV40_Enhancer        pos  1136- 1160
+  72bp Enhancer   SV40_Enhancer        pos  1208- 1232
+  GC Box Rev      GC_Box               pos  1285- 1291
+  GC Box Rev      GC_Box               pos  1297- 1303
+  GC Box Rev      GC_Box               pos  1306- 1312
+  GC Box Rev      GC_Box               pos  1318- 1324
+  GC Box Rev      GC_Box               pos  1328- 1334
+  GC Box Rev      GC_Box               pos  1339- 1345
+  GC Box          GC_Box               pos  2705- 2711
+  TATA Var        TATA                 pos  2740- 2746
+  ColE1 Ori       Origin               pos  2781- 2868
+  GC Box          GC_Box               pos  3460- 3466
+  T7 Promoter     T7_Promoter          pos  3603- 3620
+
+MODERNA ELEMENTS:
+  GC Box          GC_Box               pos   475-  481
+  GC Box          GC_Box               pos  1366- 1372
+  GC Box          GC_Box               pos  1390- 1396
+  GC Box          GC_Box               pos  2062- 2068
+  GC Box Rev      GC_Box               pos  3261- 3267
+  GC Box Rev      GC_Box               pos  5037- 5043
+  TATA Box        TATA                 pos  5102- 5108
+  TATA Box        TATA                 pos  6480- 6486

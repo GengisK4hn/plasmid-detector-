@@ -1,0 +1,88 @@
+================================================================================
+ADVANCED SV40/PROMOTER ANALYSIS - STATISTICAL REPORT
+================================================================================
+
+SEQUENCE INFORMATION
+--------------------------------------------------------------------------------
+Pfizer BNT162b2 (OR134577.1): 7,810 bp
+Moderna mRNA-1273 (OR134578.1): 6,777 bp
+Length difference: 1,033 bp
+
+MOTIF DETECTION SUMMARY
+--------------------------------------------------------------------------------
+Pfizer total elements: 16
+Moderna total elements: 11
+Difference: 5 elements
+
+DETAILED MOTIF COMPARISON
+--------------------------------------------------------------------------------
+SV40_72bp_Enhancer:
+  Pfizer: 2 copies
+  Moderna: 0 copies
+  Difference: +2 (PFIZER HIGHER)
+  Type: 72bp SV40 enhancer element
+
+SV40_GC_Box:
+  Pfizer: 2 copies
+  Moderna: 4 copies
+  Difference: -2 (MODERNA HIGHER)
+  Type: GC-rich promoter box
+
+SV40_GC_Box_Reverse:
+  Pfizer: 6 copies
+  Moderna: 2 copies
+  Difference: +4 (PFIZER HIGHER)
+  Type: Reverse complement GC box
+
+SV40_6bp_Repeat:
+  Pfizer: 3 copies
+  Moderna: 3 copies
+  Difference: +0 (EQUAL)
+  Type: 6bp repeat element
+
+TATA_Box:
+  Pfizer: 1 copies
+  Moderna: 2 copies
+  Difference: -1 (MODERNA HIGHER)
+  Type: Core TATA promoter element
+
+TATA_Box_Variant:
+  Pfizer: 1 copies
+  Moderna: 0 copies
+  Difference: +1 (PFIZER HIGHER)
+  Type: TATA box variant
+
+ColE1_Origin:
+  Pfizer: 1 copies
+  Moderna: 0 copies
+  Difference: +1 (PFIZER HIGHER)
+  Type: Bacterial origin of replication
+
+PROMOTER COMPLETENESS SCORE
+--------------------------------------------------------------------------------
+Pfizer completeness: 5/7 (71.4%)
+Moderna completeness: 3/7 (42.9%)
+Difference: 28.6%
+
+Promoter regions found:
+  Pfizer: 4 complete regions
+  Moderna: 0 complete regions
+
+Pfizer Promoter Regions:
+  Region 1: Position 1136-1339 (203 bp, Score: 4)
+    Elements: SV40_72bp_Enhancer, SV40_72bp_Enhancer, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse
+  Region 2: Position 1208-1339 (131 bp, Score: 4)
+    Elements: SV40_72bp_Enhancer, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse, SV40_GC_Box_Reverse
+  Region 3: Position 2704-2781 (77 bp, Score: 4)
+    Elements: SV40_6bp_Repeat, SV40_GC_Box, TATA_Box_Variant, ColE1_Origin
+  Region 4: Position 2705-2781 (76 bp, Score: 4)
+    Elements: SV40_GC_Box, TATA_Box_Variant, ColE1_Origin
+
+================================================================================
+CONCLUSIONS
+================================================================================
+• Pfizer contains 5 more SV40/promoter elements
+• Elements unique to Pfizer: SV40_72bp_Enhancer, TATA_Box_Variant, ColE1_Origin
+• Pfizer has higher promoter completeness (71.4% vs 42.9%)
+
+Analysis completed: Advanced SV40/Promoter detection with completeness scoring
