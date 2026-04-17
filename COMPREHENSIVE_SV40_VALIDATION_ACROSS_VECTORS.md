@@ -167,10 +167,9 @@ All analysis steps are:
 
 ---
 
-**Analysis performed by:** Enhanced Plasmid Finder Suite v2.0
+**Tools used:** Enhanced Plasmid Finder Suite v2.0
 **Validation pipeline:** rigorous_sv40_validation.py
-**Confidence level:** HIGH (multiple independent methods, positive controls)
-**Reproducibility:** COMPLETE (all code and data archived)
+**Reproducibility:** All code and data archived
 
 ---
 

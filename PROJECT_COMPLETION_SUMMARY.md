@@ -85,16 +85,15 @@ blastn -query Pfizer.fasta -db SV40_db -evalue 1e-5
 ### E-value Interpretation
 - **Pfizer 72bp hits:** E = 1.77 × 10⁻³³
   - Probability by chance: 0.00000000000000000000000000000000177
-  - **Conclusion:** NOT random - genuine SV40 sequences
 
 - **pcDNA3.1 72bp hits:** E = 1.60 × 10⁻³³
   - Same statistical significance as Pfizer
-  - **Conclusion:** Positive control validates methodology
+  - Validates methodology
 
 ### Bitscores
-- **72bp enhancer hits:** 134 bits (high quality)
-- **291bp SV40 region:** 538 bits (extremely significant)
-- **282bp SV40 region:** 521 bits (extremely significant)
+- **72bp enhancer hits:** 134 bits
+- **291bp SV40 region:** 538 bits
+- **282bp SV40 region:** 521 bits
 
 ---
 
@@ -172,19 +171,19 @@ blastn -query Pfizer.fasta -db SV40_db -evalue 1e-5
 ## Scientific Significance
 
 ### What This Means
-1. **Pfizer's construct** contains exact SV40 enhancer sequences
-2. **Statistical significance** is essentially impossible by chance (E < 10⁻³³)
-3. **Multiple independent methods** all confirm the same result
-4. **Positive controls** validate the detection methodology
-5. **Moderna's construct** lacks these SV40 elements
+1. Pfizer's construct contains exact SV40 enhancer sequences
+2. Statistical significance: E < 10⁻³³
+3. Multiple independent methods confirm the same result
+4. Positive controls validate the detection methodology
+5. Moderna's construct lacks these SV40 elements
 
 ### Validation Strength
-- **Gold standard BLAST** confirmation
-- **Perfect position concordance** across methods
-- **Extreme statistical significance** (E < 10⁻³³)
-- **Proper positive/negative controls**
-- **Fully reproducible pipeline**
-- **Publication-ready figures**
+- BLAST confirmation (standard method)
+- Perfect position concordance across methods
+- Statistical significance: E < 10⁻³³
+- Proper positive/negative controls
+- Reproducible pipeline
+- Publication-ready figures
 
 ---
 
@@ -239,11 +238,10 @@ This analysis represents a **comprehensive, multi-method validation** of SV40 en
 4. **Independent verification** (multiple methods)
 5. **Proper controls** (positive and negative)
 
-**Results are robust, reproducible, and publication-ready.**
+Results are reproducible and documented.
 
 ---
 
 **Analysis Date:** 2026-04-17
 **Validation Pipeline:** rigorous_sv40_validation.py + BLAST 2.17.0+
-**Confidence Level:** HIGHEST (multiple independent methods with perfect controls)
-**Status:** COMPLETE AND VALIDATED
+**Status:** Complete and validated

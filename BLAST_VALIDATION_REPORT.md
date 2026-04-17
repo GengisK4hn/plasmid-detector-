@@ -38,7 +38,7 @@ Parameters: evalue threshold 1e-5, blastn (nucleotide-nucleotide)
 | 1 | 1,137 - 1,208 | 178 - 107 | 72 | 100.0% | 1.77e-33 | 134 |
 | 2 | 1,209 - 1,280 | 250 - 179 | 72 | 100.0% | 1.77e-33 | 134 |
 
-**Interpretation:** Perfect 72bp matches at the exact positions identified by exact string matching. E-values of 1.77e-33 indicate these matches are statistically impossible to occur by chance.
+**Interpretation:** Perfect 72bp matches at the exact positions identified by exact string matching. E-values of 1.77e-33 indicate the probability of these matches occurring by chance is approximately 1.77 × 10⁻³³.
 
 #### Additional Significant SV40 Homology
 
@@ -102,10 +102,9 @@ The E-value (expected value) represents the number of hits expected by chance:
 
 - **Pfizer 72bp hits:** E = 1.77 × 10⁻³³
   - Interpretation: Expect 0.00000000000000000000000000000000177 hits by chance
-  - Conclusion: These matches are **NOT random** - genuine SV40 sequences
 
 - **pcDNA3.1 72bp hits:** E = 1.60 × 10⁻³³
-  - Same interpretation as Pfizer
+  - Same statistical significance as Pfizer
   - Confirms positive control works as expected
 
 ### Bitscore Analysis
@@ -116,7 +115,7 @@ Bitscores measure alignment quality independent of database size:
 - **291bp SV40 region:** 538 bits (Pfizer)
 - **282bp SV40 region:** 521 bits (Pfizer)
 
-Higher bitscores = more significant alignments. All scores indicate **highly significant** matches.
+Higher bitscores indicate more significant alignments. All scores indicate significant matches.
 
 ---
 
@@ -131,7 +130,7 @@ Higher bitscores = more significant alignments. All scores indicate **highly sig
 | BLASTn (72bp) | 2 ✅ (1.77e-33) | 0 ✅ | 3 ✅ (1.60e-33) |
 | Motif scanning | 2 ✅ | 0 ✅ | 2 ✅ |
 
-**Conclusion:** All independent methods produce **consistent results**.
+**Conclusion:** All independent methods produce consistent results.
 
 ### Position Concordance
 
@@ -141,7 +140,7 @@ Higher bitscores = more significant alignments. All scores indicate **highly sig
 | BLASTn alignment | 1,137 - 1,208 | 1,209 - 1,280 |
 | Difference | 0 | 0 |
 
-**Perfect concordance** between exact string matching and BLASTn (accounting for BLAST's inclusive coordinate system).
+Perfect concordance between exact string matching and BLASTn (accounting for BLAST's inclusive coordinate system).
 
 ---
 
@@ -206,20 +205,20 @@ All BLAST results are preserved in TSV format for independent verification.
 
 ### Validation Confirmation
 
-✅ BLAST analysis **confirms** exact string matching results
-✅ Position coordinates are **identical** across methods
-✅ Statistical significance is **extremely high** (E < 10⁻³³)
-✅ Positive control **validates** methodology
-✅ Negative control **confirms** specificity
+BLAST analysis confirms exact string matching results
+Position coordinates are identical across methods
+Statistical significance: E < 10⁻³³
+Positive control validates methodology
+Negative control confirms specificity
 
 ### Scientific Significance
 
-This BLAST validation provides **independent confirmation** using the **gold standard** method for sequence similarity analysis. The results are:
+This BLAST validation provides independent confirmation using standard methods for sequence similarity analysis. The results are:
 
-- **Statistically robust** (E-values < 10⁻³³)
-- **Methodologically consistent** (multiple independent methods agree)
-- **Reproducible** (all parameters and data documented)
-- **Validated** (positive/negative controls confirm specificity)
+- Statistically significant (E-values < 10⁻³³)
+- Methodologically consistent (multiple independent methods agree)
+- Reproducible (all parameters and data documented)
+- Validated (positive/negative controls confirm specificity)
 
 ---
 
@@ -236,5 +235,4 @@ This BLAST validation provides **independent confirmation** using the **gold sta
 **Analysis performed:** 2026-04-17
 **BLAST version:** 2.17.0+
 **Validation pipeline:** blast_results/
-**Confidence level:** HIGHEST (gold standard method with perfect controls)
-**Reproducibility:** COMPLETE (all BLAST outputs archived)
+**Reproducibility:** All BLAST outputs archived in blast_results/ directory
