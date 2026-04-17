@@ -621,6 +621,110 @@ class PlasmidEnhancedDetector:
 
         return result
 
+    def detect_vaccine_plasmid_signature(self, hits: List[Dict]) -> Dict:
+        """
+        Detects potential residual DNA from mRNA vaccine production plasmids.
+
+        Identifies signatures characteristic of Pfizer/BioNTech or Moderna vaccine
+        manufacturing plasmids by detecting co-occurring markers:
+        - ColE1/ColRNAI backbone (bacterial origin of replication)
+        - KanR/NeoR resistance (selection markers)
+        - SARS-CoV-2 Spike sequences (vaccine insert)
+        - SV40 promoter/enhancer (Pfizer-specific)
+
+        Args:
+            hits: List of plasmid hit dictionaries from Abricate
+
+        Returns:
+            Dictionary with signature detection details
+        """
+        if not hits:
+            return {"signature_detected": False}
+
+        # Normalize gene names to uppercase for matching
+        gene_names = {hit.get('gene', '').upper() for hit in hits}
+        full_hits = {hit.get('gene', '').upper(): hit for hit in hits}
+
+        # Define marker categories (expandable)
+        col_markers = {'COLRNAI_1', 'COLRNAI', 'COLE1', 'COLE1_ORI', 'ORI'}
+        kan_markers = {'KANR', 'NEOR', 'APH(3\'', 'APH(3\')', 'KANAMYCIN', 'AMINOGLYCOSIDE', 'NEOMYCIN'}
+        spike_markers = {'SPIKE', 'SARS2_SPIKE', 'COVID_SPIKE', 'SARS-COV-2_S', 'S蛋白'}
+        sv40_markers = {'SV40', 'SV40_PROMOTER', 'SV40_ENHANCER', 'SV40_ORI', 'SV40_POLY_A'}
+
+        # Check for marker presence
+        has_col = any(marker in gene_names for marker in col_markers)
+        has_kan = any(marker in gene_names for marker in kan_markers)
+        has_spike = any(marker in gene_names for marker in spike_markers)
+        has_sv40 = any(marker in gene_names for marker in sv40_markers)
+
+        # Detect vaccine signature
+        if has_col and has_kan and has_spike:
+            confidence = "HIGH" if has_sv40 else "MODERATE"
+            vaccine_type = "Pfizer/BioNTech-like" if has_sv40 else "Moderna-like"
+
+            signature = {
+                "signature_detected": True,
+                "type": "mRNA_Vaccine_Production_Plasmid",
+                "vaccine_type": vaccine_type,
+                "confidence": confidence,
+                "components_found": [],
+                "details": f"Co-occurrence of ColE1/ColRNAI backbone + Kan/Neo resistance + Spike insert. "
+                          f"Consistent with residual {vaccine_type} plasmid DNA from manufacturing.",
+                "key_hits": {}
+            }
+
+            # Add detected components
+            if has_col:
+                signature["components_found"].append("ColE1/ColRNAI (bacterial origin)")
+                col_hit = next((m for m in col_markers if m in gene_names), None)
+                if col_hit and col_hit in full_hits:
+                    signature["key_hits"]["col"] = {
+                        "gene": full_hits[col_hit].get('gene', 'Unknown'),
+                        "coverage": full_hits[col_hit].get('coverage', 0),
+                        "identity": full_hits[col_hit].get('identity', 0),
+                        "position": f"{full_hits[col_hit].get('start', '?')}-{full_hits[col_hit].get('end', '?')}"
+                    }
+
+            if has_kan:
+                signature["components_found"].append("KanR/NeoR (selection marker)")
+                kan_hit = next((m for m in kan_markers if m in gene_names), None)
+                if kan_hit and kan_hit in full_hits:
+                    signature["key_hits"]["kan"] = {
+                        "gene": full_hits[kan_hit].get('gene', 'Unknown'),
+                        "coverage": full_hits[kan_hit].get('coverage', 0),
+                        "identity": full_hits[kan_hit].get('identity', 0),
+                        "position": f"{full_hits[kan_hit].get('start', '?')}-{full_hits[kan_hit].get('end', '?')}"
+                    }
+
+            if has_spike:
+                signature["components_found"].append("SARS-CoV-2 Spike")
+
+            if has_sv40:
+                signature["components_found"].append("SV40 promoter/enhancer (Pfizer-specific)")
+
+            return signature
+
+        # Check for individual components (partial signature)
+        components = []
+        if has_col:
+            components.append("ColE1/ColRNAI detected")
+        if has_kan:
+            components.append("KanR/NeoR detected")
+        if has_spike:
+            components.append("Spike sequence detected")
+        if has_sv40:
+            components.append("SV40 elements detected")
+
+        if components:
+            return {
+                "signature_detected": False,
+                "partial_signature": True,
+                "components_found": components,
+                "note": "Individual plasmid markers detected but incomplete vaccine signature"
+            }
+
+        return {"signature_detected": False}
+
     def generate_plasmid_report(self, results: List[Dict]) -> pd.DataFrame:
         """
         Generate plasmid analysis report with detailed hit information
@@ -668,13 +772,27 @@ class PlasmidEnhancedDetector:
             if result['plasmid_detected'] and 'hits' in result:
                 confidence = result.get('plasmid_confidence', result.get('confidence', 'UNKNOWN'))
                 markers = result.get('plasmid_markers', result.get('markers_found', []))
-                print(f"Sequence: {result.get('sequence_name', result.get('file', 'Unknown'))}")
+                seq_name = result.get('sequence_name', result.get('file', 'Unknown'))
+
+                print(f"Sequence: {seq_name}")
                 print(f"   Confidence: {confidence}")
                 print(f"   Markers: {', '.join(markers)}")
                 print(f"   Hit Details:")
                 for hit in result['hits']:
                     print(f"      - {hit['gene']}: positions {hit['start']}-{hit['end']} "
                           f"({hit['coverage']:.1f}% coverage, {hit['identity']:.1f}% identity)")
+
+                # Check for vaccine production signature
+                vaccine_sig = self.detect_vaccine_plasmid_signature(result['hits'])
+                if vaccine_sig.get('signature_detected'):
+                    print(f"   🚨 VACCINE PRODUCTION SIGNATURE DETECTED!")
+                    print(f"      Type: {vaccine_sig['type']}")
+                    print(f"      Vaccine: {vaccine_sig['vaccine_type']}")
+                    print(f"      Confidence: {vaccine_sig['confidence']}")
+                    print(f"      Components: {', '.join(vaccine_sig['components_found'])}")
+                elif vaccine_sig.get('partial_signature'):
+                    print(f"   ⚠️  Partial vaccine markers: {', '.join(vaccine_sig['components_found'])}")
+
                 print()
 
         return df
